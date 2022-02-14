@@ -105,36 +105,36 @@ class UserVisionData:
         打印表格数据
         :return:
         """
-        table_user_info = Texttable()
-        table_user_info.set_deco(Texttable.HEADER)
-        table_user_info.set_header_align(["l", "l"])
-        table_user_info.set_cols_align(["r", "l"])
-        table_user_info.add_rows([["用户信息", ""],
-                                  ["姓名:", self.userName, ],
-                                  ["手机号:", self.phoneNum],
-                                  ["所属人:", self.billOwner],
-                                  ["配镜用途:", self.Purpose],
-                                  ["打印时间:", self.printDateTime],
-                                  ["备注:", self.Comments]])
-        str_user_info = table_user_info.draw()
-        print(str_user_info)
-        # self.logcat(str_user_info)
-
-        print()
-
-        table_eyes_info = Texttable()
-        table_eyes_info.set_deco(Texttable.HEADER)
-        table_eyes_info.set_header_align(["c", "c", "c", "c", "c", "c"])
-        table_eyes_info.set_cols_align(["c", "c", "c", "c", "c", "c"])
-        table_eyes_info.add_rows([["", "度数", "散光", "轴位", "下加光", "瞳距"],
-                                  ["右眼:", self.SPH_RightEye, self.CYL_RightEye, self.AXIS_RightEye, self.DOWN_RightEye,
-                                   self.DIST_RightEye],
-                                  ["","","","","",""],
-                                  ["左眼:", self.SPH_LeftEye, self.CYL_LeftEye, self.AXIS_LeftEye, self.DOWN_LeftEye,
-                                   self.DIST_LeftEye]])
-        str_eyes_info = table_eyes_info.draw()
-
-        print(str_eyes_info)
+        # table_user_info = Texttable()
+        # table_user_info.set_deco(Texttable.HEADER)
+        # table_user_info.set_header_align(["l", "l"])
+        # table_user_info.set_cols_align(["r", "l"])
+        # table_user_info.add_rows([["用户信息", ""],
+        #                           ["姓名:", self.userName, ],
+        #                           ["手机号:", self.phoneNum],
+        #                           ["所属人:", self.billOwner],
+        #                           ["配镜用途:", self.Purpose],
+        #                           ["打印时间:", self.printDateTime],
+        #                           ["备注:", self.Comments]])
+        # str_user_info = table_user_info.draw()
+        # print(str_user_info)
+        # # self.logcat(str_user_info)
+        #
+        # print()
+        #
+        # table_eyes_info = Texttable()
+        # table_eyes_info.set_deco(Texttable.HEADER)
+        # table_eyes_info.set_header_align(["c", "c", "c", "c", "c", "c"])
+        # table_eyes_info.set_cols_align(["c", "c", "c", "c", "c", "c"])
+        # table_eyes_info.add_rows([["", "度数", "散光", "轴位", "下加光", "瞳距"],
+        #                           ["右眼:", self.SPH_RightEye, self.CYL_RightEye, self.AXIS_RightEye, self.DOWN_RightEye,
+        #                            self.DIST_RightEye],
+        #                           ["","","","","",""],
+        #                           ["左眼:", self.SPH_LeftEye, self.CYL_LeftEye, self.AXIS_LeftEye, self.DOWN_LeftEye,
+        #                            self.DIST_LeftEye]])
+        # str_eyes_info = table_eyes_info.draw()
+        #
+        # print(str_eyes_info)
         # self.logcat(str_eyes_info)
 
     def getHtmlData(self):
@@ -190,11 +190,11 @@ class UserVisionData:
         html += "联系方式:13621603550\n"
         html += "门店地址:上海市浦东新区杨高中路2108号天物空间A幢2层A230室\n"     
 
-        # 删除表头间隔符
+        # 删除表头间隔符,增加表头空行
         start_index = html.find("瞳距")
         end_index = html.find("右眼：")
         if start_index > 0 and end_index > 0:
-            html = html[0:start_index+2] + "\n" + html[end_index:]
+            html = html[0:start_index+2] + "\n\n " + html[end_index:]
 
         # 格式化HTML
         html = html.replace("=", "-")
@@ -264,7 +264,7 @@ def printData():
         # print(html_content)
 
         # 需要云端打印可以开放注释
-        userVisionData.requestPrintApi(html_content)
+        # userVisionData.requestPrintApi(html_content)
 
     else:
         print("input parameters error...")
