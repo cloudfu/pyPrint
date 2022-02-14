@@ -7,15 +7,15 @@ from texttable import Texttable
 
 # 说明：飞鹅云后台配置参数
 URL = "http://api.feieyun.cn/Api/Open/"  # 不需要修改
-USER = "1055387938@qq.com"  # *必填*：飞鹅云后台注册账号
-UKEY = "PTHPJtdVP3FZSBnkJ2"  # *必填*: 飞鹅云后台注册账号后生成的UKEY 【备注：这不是填打印机的KEY】
-SN = "15960800945"  # *必填*：打印机编号，必须要在管理后台里手动添加打印机或者通过API添加之后，才能调用API
+USER = "1255387938@qq.com"  # *必填*：飞鹅云后台注册账号
+UKEY = "TFHPJtdVP3FZSBnkJ2"  # *必填*: 飞鹅云后台注册账号后生成的UKEY 【备注：这不是填打印机的KEY】
+SN = "13960800945"  # *必填*：打印机编号，必须要在管理后台里手动添加打印机或者通过API添加之后，才能调用API
 
 
 # 飞鹅云后台入口和账号
 # https://admin.feieyun.com/index.php
-# 1055387938@qq.com
-# 312345678
+# 1255387938@qq.com
+# 1312345678
 
 
 class UserVisionData:
@@ -264,7 +264,7 @@ def printData():
         # print(html_content)
 
         # 需要云端打印可以开放注释
-        # userVisionData.requestPrintApi(html_content)
+        userVisionData.requestPrintApi(html_content)
 
     else:
         print("input parameters error...")
